@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page with Optional Dashboard</title>
+</head>
+<style>
+    /* ...  CSS ... */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-image: url(img/hawa\ mahal\,png.jpg);
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    header {
+        background-color: #c4bbeba6;
+        color: #fff;
+        padding: 10px;
+        border-radius: 100px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 60px;
+        background-image: url(img/jmrcp.ng.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+    nav h1 {
+        margin-left: 36%;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    h2 {
+        display: inline;
+        font-size: 120px;
+        float: left;
+        margin-top: 213px;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+        padding: 30px;
+        font-size: 50px;
+    }
+
+    #dashboard {
+        background-color: #f4f4f400;
+        margin-top: 237px;
+        border-radius: 30px;
+        display: grid;
+        width: 500px;
+        padding-bottom: 200px;
+        display: grid;
+        padding: 20px;
+        /* border: 5px solid black; */
+    }
+
+    #more-section {
+        text-align: left;
+        margin-top: 30px;
+        padding: 50px 50px;
+    }
+
+    #dashboard-button {
+        position: absolute;
+        top: auto;
+        left: 100px;
+        padding-top: -5px;
+        font-size: 80px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 36px;
+        cursor: pointer;
+    }
+
+    #dashboard-button:hover {
+        background-color: #45a049;
+    }
+
+    #dashboard-button:active {
+        background-color: #3e8e37;
+    }
+
+    #dashboard-button:focus {
+        outline: none;
+    }
+
+    #dashboard-button:visited {
+        color: #fff;
+    }
+
+    /* for the sidebar buttons --> */
+    #sidebar {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: #c4bbeb;
+        width: 200px;
+        padding: 20px;
+        display: grid;
+        /* Hides the sidebar initially */
+    }
+
+    .sidebar-button {
+
+        display: grid;
+        margin-bottom: 5%;
+        padding: 22%;
+        background-color: #5e656ccc;
+        color: #fff;
+        /* border: 2px solid; */
+        border: 13px solid #969ca1;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 50px;
+    }
+
+    .sidebar-button:hover {
+        background-color: #5e656c;
+    }
+
+    /* Flexbox for layout */
+    main {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    /* Class to show the sidebar */
+    .show-sidebar {
+        display: none;
+    }
+
+    #worker-details-options {
+        display: none;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+
+    /* Hides the new sidebar initially */
+    #worker-details-sidebar {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 200px;
+        padding: 20px;
+        padding-right: 3.4%;
+        margin-left: 4%;
+        display: grid;
+        margin-left: 11.9%;
+        /* border: 2px solid; */
+    }
+
+    .worker-option-button {
+        display: block;
+        margin: 5px;
+        padding: 37px 23px;
+        background-color: #5e656ccc;
+        color: #fff;
+        border: 2px solid #969ca1;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 60px;
+    }
+
+    .edit-option-button {
+        display: block;
+        left: 200%;
+        padding: 20%;
+        display: grid;
+        font-size: 350%;
+        margin-left: 10%;
+        margin: 5px;
+        padding: 37px 23px;
+        background-color: #5e656ccc;
+        color: #fff;
+        border: 2px solid #969ca1;
+        border-radius: 30px;
+        cursor: pointer;
+
+
+    }
+
+    #edit-sub-sidebar {
+        display: grid;
+        position: absolute;
+        left: 20%;
+        bottom: 30%;
+
+    }
+
+    /* ... Existing CSS code ... */
+    #fault-report-options {
+        display: none;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+
+    #fault-details-sidebar {
+        position: absolute;
+        top: 90%;
+        transform: translateY(-50%);
+        width: 6.8%;
+        padding: 20px;
+        padding-right: 3.4%;
+        margin-left: 4%;
+        display: grid;
+        margin-left: 9.70%;
+    }
+
+    /* Style for the new fault report option buttons */
+    .fault-option-button {
+        display: block;
+        margin: 5px;
+        padding: 37px 23px;
+        background-color: #5e656ccc;
+        color: #fff;
+        border: 2px solid #969ca1;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 50px;
+    }
+
+    /* Style for the sidebar buttons --> */
+    #sidebar {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: #c4bbeb;
+        width: 200px;
+        padding: 20px;
+        display: grid;
+        /* Hides the sidebar initially */
+    }
+
+    .sidebar-button {
+        display: grid;
+        margin-bottom: 5%;
+        padding: 22%;
+        background-color: #5e656ccc;
+        color: #fff;
+        border: 13px solid #969ca1;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 50px;
+    }
+
+    /* Flexbox for layout */
+    main {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    /* Class to show the sidebar */
+    .show-sidebar {
+        display: none;
+    }
+
+    /* ... Existing CSS code ... */
+    #maintenance-options {
+        display: none;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+
+    #maintainance-details-sidebar {
+
+        position: absolute;
+        top: 90%;
+        transform: translateY(-50%);
+        width: 6.8%;
+        padding: 20px;
+        padding-right: 3.4%;
+        margin-left: 4%;
+        display: grid;
+        margin-left: 9.70%;
+    }
+
+    /* Style for the new maintenance option buttons */
+    .maintenance-option-button {
+        display: block;
+        margin: 5px;
+        padding: 37px 23px;
+        background-color: #5e656ccc;
+        color: #fff;
+        border: 2px solid #969ca1;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 50px;
+    }
+
+    #fault-report-options {
+        display: none;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+</style>
+
+<body>
+    <header>
+        <!-- ...header content ... -->
+        <nav>
+            <h1>JAIPUR METRO CORPORATION</h1>
+            <ul>
+                <li><a href="https://transport.rajasthan.gov.in/content/transportportal/en/metro.html#">JMRC Official
+                        Site</a></li>
+                <li><a
+                        href="https://transport.rajasthan.gov.in/content/transportportal/en/metro/Aboutus/AboutJMRC.html">About</a>
+                </li>
+                <li><a
+                        href="https://transport.rajasthan.gov.in/content/transportportal/en/metro/contact-us.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section1 id="more-section">
+            <button id="dashboard-button" onclick="toggleSidebar()">&#9776;</button>
+        </section1>
+
+
+        <!-- ... Existing HTML code ... -->
+        <section2 id="dashboard">
+            <button class="sidebar-button" onclick="toggleWorkerDetails()">Worker Details &#9662;</button>
+            <div id="worker-details-options" style="display: none;">
+                <div id="worker-details-sidebar" style="left: 10%;">
+                    <button class="worker-option-button">Attendance</button>
+                    <button class="worker-option-button">Record</button>
+                    <button class="worker-option-button" onclick="toggleEditSubSidebar()">Edit &#9662;</button>
+                </div>
+            </div>
+            <button class="sidebar-button" onclick="toggleFaultReport()">Fault Report &#9662;</button>
+            <div id="fault-report-options" style="display: none;">
+                <div id="fault-details-sidebar">
+                    <button class="fault-option-button">Lift</button>
+                    <button class="fault-option-button">Escalator</button>
+                    <button class="fault-option-button">CBR Tripping</button>
+                    <button class="fault-option-button">E&M</button>
+                    <button class="fault-option-button">SCADA</button>
+                    <button class="fault-option-button">OHE</button>
+                    <button class="fault-option-button">PSI</button>
+                </div>
+            </div>
+            <!-- <button class="sidebar-button">Maintenance</button> -->
+
+            <button class="sidebar-button" onclick="toggleMaintenance()">Maintenance &#9662;</button>
+            <div id="maintenance-options" style="display: none;">
+                <div id="maintainance-details-sidebar">
+                    <button class="maintenance-option-button">Lift</button>
+                    <button class="maintenance-option-button">Escalator</button>
+                    <button class="maintenance-option-button">E&M</button>
+                    <button class="maintenance-option-button">SCADA</button>
+                    <button class="maintenance-option-button">OHE</button>
+                    <button class="maintenance-option-button">PSI</button>
+                </div>
+            </div>
+        </section2>
+        <!-- ... Existing HTML code ... -->
+
+
+
+        <section3 id="edit-sub-sidebar" style="display:none;">
+            <button class="edit-option-button">Add</button>
+            <button class="edit-option-button">Rename</button>
+        </section3>
+    </main>
+
+
+
+    <script>
+        /* ... Your JavaScript code ... */
+        const dashboard = document.getElementById('dashboard');
+        const dashboardButton = document.getElementById('dashboard-button');
+        const workerDetailsOptions = document.getElementById('worker-details-options');
+        const faultReportOptions = document.getElementById('fault-report-options');
+        const maintenanceOptions = document.getElementById('maintenance-options');
+        const editSubSidebar = document.getElementById('edit-sub-sidebar');
+
+        dashboardButton.addEventListener('click', () => {
+            // Hide all other sections' sub-buttons
+            workerDetailsOptions.style.display = 'none';
+            faultReportOptions.style.display = 'none';
+            maintenanceOptions.style.display = 'none';
+            editSubSidebar.style.display = 'none';
+
+            dashboard.style.display = dashboard.style.display === 'none' ? 'grid' : 'none';
+        });
+
+        function toggleWorkerDetails() {
+            var workerDetailsSidebar = document.getElementById("worker-details-sidebar");
+            // Hide all other sections' sub-buttons
+            faultReportOptions.style.display = 'none';
+            maintenanceOptions.style.display = 'none';
+            editSubSidebar.style.display = 'none';
+
+            workerDetailsOptions.style.display = workerDetailsOptions.style.display === 'none' ? 'grid' : 'none';
+            workerDetailsSidebar.style.left = workerDetailsOptions.style.display === 'none' ? '10%' : '0';
+        }
+
+        function toggleEditSubSidebar() {
+            // Hide all other sections' sub-buttons
+            faultReportOptions.style.display = 'none';
+            maintenanceOptions.style.display = 'none';
+
+            editSubSidebar.style.display = editSubSidebar.style.display === 'none' ? 'grid' : 'none';
+        }
+
+        function toggleFaultReport() {
+            // Hide all other sections' sub-buttons
+            workerDetailsOptions.style.display = 'none';
+            maintenanceOptions.style.display = 'none';
+            editSubSidebar.style.display = 'none';
+
+            faultReportOptions.style.display = faultReportOptions.style.display === 'none' ? 'grid' : 'none';
+        }
+
+        function toggleMaintenance() {
+            // Hide all other sections' sub-buttons
+            workerDetailsOptions.style.display = 'none';
+            faultReportOptions.style.display = 'none';
+            editSubSidebar.style.display = 'none';
+
+            maintenanceOptions.style.display = maintenanceOptions.style.display === 'none' ? 'grid' : 'none';
+        }
+    </script>

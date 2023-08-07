@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page with Optional Dashboard</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-family: Arial, sans-serif;
+        background-image: url(img/hawa\ mahal\,png.jpg);
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    header {
+        background-color: #c4bbeba6;
+        color: #fff;
+        padding: 10px;
+        border-radius: 70px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 16px;
+        background-image: url(img/jmrc.png.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+    nav h1 {
+        margin-left: 36%;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+    }
+
+    h2 {
+        display: inline;
+        font-size: 120px;
+        float: left;
+        margin-top: 213px;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+        padding: 30px;
+        font-size: 30px;
+    }
+
+    /* section2 {
+        padding: 20px;
+        flex: 1;
+        min-width: 300px;
+    } */
+
+    section {
+        padding-top: 50%;
+        flex: 1;
+        min-width: 300px;
+    }
+
+    #dashboard {
+        background-color: #f4f4f400;
+        min-width: 277px;
+        margin-top: 220px;
+        border-radius: 30px;
+        display: grid;
+        width: 500px;
+        padding-bottom: 200px;
+        display: grid;
+        padding: 20px;
+        border: 5px solid black;
+    }
+
+    #more-section {
+        text-align: left;
+        margin-top: 30px;
+        padding: 50px 50px;
+    }
+
+    #dashboard-button {
+        position: absolute;
+        top: auto;
+        left: 100px;
+        padding-top: -5px;
+        font-size: 80px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 36px;
+        cursor: pointer;
+    }
+
+    #dashboard-button:hover {
+        background-color: #45a049;
+    }
+
+    #dashboard-button:active {
+        background-color: #3e8e37;
+    }
+
+    #dashboard-button:focus {
+        outline: none;
+    }
+
+    #dashboard-button:visited {
+        color: #fff;
+    }
+
+    /* for the sidebar buttons --> */
+    #sidebar {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        background-color: #c4bbeb;
+        width: 200px;
+        padding: 20px;
+        display: grid;
+        /* Hides the sidebar initially */
+    }
+
+    .sidebar-button {
+        display: grid;
+        margin-bottom: 4%;
+        padding: 10%;
+        background-color: #5e656ccc;
+        color: #fff;
+        border: 2px solid;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 70px;
+    }
+
+    .sidebar-button:hover {
+        background-color: #5e656c;
+    }
+
+    /* Flexbox for layout */
+    main {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: relative;
+    }
+
+    /* Class to show the sidebar */
+    .show-sidebar {
+        display: none;
+    }
+
+    #worker-details-options {
+        display: none;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+
+    #worker-details-sidebar {
+        position: absolute;
+        top: 50%;
+        /* left: -250px; */
+        transform: translateY(-50%);
+        background-color: #c4bbeb;
+        width: 200px;
+        padding: 20px;
+        /* left: 6%; */
+        margin-left: 4%;
+        display: grid;
+        margin-left: 10%;
+        /* Hides the new sidebar initially */
+    }
+
+    .worker-option-button {
+        display: block;
+        margin: 5px;
+        padding: 10px 20px;
+        background-color: #5e656ccc;
+        color: #fff;
+        border: 2px solid;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 60px;
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <h1>JAIPUR METRO CORPORATION</h1>
+            <ul>
+                <li><a href="https://transport.rajasthan.gov.in/content/transportportal/en/metro.html#">JMRC Official
+                        Site</a></li>
+                <li><a
+                        href="https://transport.rajasthan.gov.in/content/transportportal/en/metro/Aboutus/AboutJMRC.html">About</a>
+                </li>
+                <li><a
+                        href="https://transport.rajasthan.gov.in/content/transportportal/en/metro/contact-us.html">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section3 id="more-section">
+            <button id="dashboard-button" onclick="toggleSidebar()">&#9776;</button>
+        </section3>
+
+        <section1 id="dashboard">
+            <button class="edit-option-button" style="display: none;">Add worker</button>
+            <button class="edit-option-button" style="display: none;">Rename</button>
+            <button class="sidebar-button" onclick="toggleWorkerDetails()">Worker Details &#9662;</button>
+            <div id="worker-details-options" style="display: none;">
+                <div id="worker-details-sidebar" style="left: 10%;">
+                    <button class="worker-option-button">Attendance</button>
+                    <button class="worker-option-button">Record</button>
+                    <button class="worker-option-button" onclick="toggleEditSubSidebar()">Edit &#9662;</button>
+                </div>
+            </div>
+            <div id="edit-sub-sidebar" style="display: none;">
+                <button class="edit-option-button">Add worker</button>
+                <button class="edit-option-button">Rename</button>
+            </div>
+            <button class="sidebar-button">Fault Report</button>
+            <button class="sidebar-button">Maintenance</button>
+        </section1>
+    </main>
+
+    <script>
+        const dashboard = document.getElementById('dashboard');
+        const dashboardButton = document.getElementById('dashboard-button');
+        const workerDetailsOptions = document.getElementById('worker-details-options');
+        const editSubSidebar = document.getElementById('edit-sub-sidebar');
+
+        dashboardButton.addEventListener('click', () => {
+            dashboard.style.display = dashboard.style.display === 'none' ? 'grid' : 'none';
+        });
+
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            sidebar.style.display = sidebar.style.display === 'none' ? 'grid' : 'none';
+        }
+
+        function toggleWorkerDetails() {
+            var workerDetailsSidebar = document.getElementById("worker-details-sidebar");
+            workerDetailsOptions.style.display = workerDetailsOptions.style.display === 'none' ? 'grid' : 'none';
+            workerDetailsSidebar.style.left = workerDetailsOptions.style.display === 'none' ? '10%' : '0';
+            editSubSidebar.style.display = 'none'; // Close the edit sub-sidebar when toggling worker details
+        }
+
+        function toggleEditSubSidebar() {
+            editSubSidebar.style.display = editSubSidebar.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+</html>
